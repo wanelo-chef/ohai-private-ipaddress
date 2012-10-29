@@ -1,5 +1,17 @@
 module OhaiPrivateIpaddress
   module Helper
+    def self.ip(host, interface = 'private-ipaddress')
+      return if host.nil?
+      case interface
+        when 'private-ipaddress'
+          private_ip(host)
+        when 'ipaddress'
+          host.ipaddress
+        when 'localhost'
+          '127.0.0.1'
+      end
+    end
+
     def self.private_ip(host)
       addresses = host.network.interfaces.map do |name, interface|
         interface['addresses'].keys if interface['addresses']
