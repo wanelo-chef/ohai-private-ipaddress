@@ -1,1 +1,1 @@
-default["ohai"]["plugins"]["ohai-private-ip"] = "plugins"
+default["ohai"]["plugins"]["ohai-private-ipaddress"] = "plugins"
